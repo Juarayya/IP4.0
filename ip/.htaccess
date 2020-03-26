@@ -1,0 +1,66 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^mobile/list/$ RestController.php?page_key=list [nc,qsa]
+RewriteRule ^mobile/list$ RestController.php?page_key=list [nc,qsa]
+RewriteRule ^mobile/list/(.*?)/?$ RestController.php?page_key=list&name=$1 [nc,qsa]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /mobile/list\.php\?name=([^\&\ ]+)
+RewriteRule ^/?mobile/list\.php$ /mobile/list/%1? [L,R=301]
+
+RewriteRule ^mobile/login/$ RestController.php?page_key=login [nc,qsa]
+RewriteRule ^mobile/login$ RestController.php?page_key=login [nc,qsa]
+RewriteRule ^mobile/login/(.*?)/(.*?)/(.*?)/?$ RestController.php?page_key=login&username=$1&pwd=$2&type=$3 [nc,qsa]
+
+RewriteRule ^/$ index.xml [nc,qsa]
+RewriteRule ^$ index.xml [nc,qsa]
+
+RewriteRule ^test/$ RestController.php?page_key=test [nc,qsa]
+RewriteRule ^test$ RestController.php?page_key=test [nc,qsa]
+
+RewriteRule ^login/auth/$ RestController.php?page_key=authLogin [nc,qsa]
+RewriteRule ^login/auth$ RestController.php?page_key=authLogin [nc,qsa]
+
+RewriteRule ^user/create/$ RestController.php?page_key=createUser [nc,qsa]
+RewriteRule ^user/create$ RestController.php?page_key=createUser [nc,qsa]
+
+RewriteRule ^user/read/$ RestController.php?page_key=readUser [nc,qsa]
+RewriteRule ^user/read$ RestController.php?page_key=readUser [nc,qsa]
+
+RewriteRule ^user/update/$ RestController.php?page_key=updateUser [nc,qsa]
+RewriteRule ^user/update$ RestController.php?page_key=updateUser [nc,qsa]
+
+RewriteRule ^user/delete/$ RestController.php?page_key=deleteUser [nc,qsa]
+RewriteRule ^user/delete$ RestController.php?page_key=deleteUser [nc,qsa]
+
+RewriteRule ^point/list/$ RestController.php?page_key=pointList [nc,qsa]
+RewriteRule ^point/list$ RestController.php?page_key=pointList [nc,qsa]
+
+RewriteRule ^merchant/list/$ RestController.php?page_key=merchantList [nc,qsa]
+RewriteRule ^merchant/list$ RestController.php?page_key=merchantList [nc,qsa]
+
+RewriteRule ^merchant/listnot/$ RestController.php?page_key=merchantListNot [nc,qsa]
+RewriteRule ^merchant/listnot$ RestController.php?page_key=merchantListNot [nc,qsa]
+
+RewriteRule ^merchant/read/$ RestController.php?page_key=merchantRead [nc,qsa]
+RewriteRule ^merchant/read$ RestController.php?page_key=merchantRead [nc,qsa]
+
+RewriteRule ^kurs/merchant/$ RestController.php?page_key=kursMerchant [nc,qsa]
+RewriteRule ^kurs/merchant$ RestController.php?page_key=kursMerchant [nc,qsa]
+
+RewriteRule ^kurs/trade/$ RestController.php?page_key=kursTrade [nc,qsa]
+RewriteRule ^kurs/trade$ RestController.php?page_key=kursTrade [nc,qsa]
+
+RewriteRule ^trade/merchant/$ RestController.php?page_key=tradeMerchant [nc,qsa]
+RewriteRule ^trade/merchant$ RestController.php?page_key=tradeMerchant [nc,qsa]
+
+RewriteRule ^redeem/produk/$ RestController.php?page_key=redeemProduct [nc,qsa]
+RewriteRule ^redeem/produk$ RestController.php?page_key=redeemProduct [nc,qsa]
+
+RewriteRule ^produk/list/$ RestController.php?page_key=productList [nc,qsa]
+RewriteRule ^produk/list$ RestController.php?page_key=productList [nc,qsa]
+</IfModule>
